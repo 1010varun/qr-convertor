@@ -2,20 +2,6 @@
 
 this is a basic react application, used to convert any text to QR.
 
-
-##### Deployed Link : https://convert-to-qr.netlify.app/
-
-To start this project on your system simply clone the project. Then run these following commands : 
-1. npm i
-2. npm start
-
-And then you are ready to go......
-
-
-# Text to QR
-
-this is a basic react application, used to convert any text to QR.
-
 [![GitHub issues](https://img.shields.io/github/issues/1010varun/qr-convertor)](https://github.com/1010varun/qr-convertor/issues)
 [![GitHub forks](https://img.shields.io/github/forks/1010varun/qr-convertor)](https://github.com/1010varun/qr-convertor/network)
 [![GitHub stars](https://img.shields.io/github/stars/1010varun/qr-convertor)](https://github.com/1010varun/qr-convertor/stargazers)
