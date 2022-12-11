@@ -7,7 +7,7 @@ const QrGenerator = ({imageUrl}) => {
           src={imageUrl}
           className="img-fluid"
           alt="QR code"
-          style={{ marginLeft: "38%" }}
+          style={{ marginLeft: "40%"}}
         ></img>
       </div>
     )
