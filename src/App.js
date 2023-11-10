@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
+import daynight from './components/image/day-and-night.png'
+
 import Navbar from "./components/navbar";
 import InputBox from "./components/inputBox";
 import ConvertButton from "./components/ConvertButton";
@@ -8,6 +10,20 @@ import QrGenerator from "./components/qrGenerator";
 import Footer from "./components/Footer";
 
 const App = () => {
+
+  const [mode, setMode] = useState('light'); //Whether darkmode is enabled or not
+
+  const toggleMode=()=>{
+    if(mode==='light'){
+      setMode('dark');
+      document.body.style.backgroundColor='#212529';
+    }
+    else if(mode==='dark'){
+      setMode('light');
+      document.body.style.backgroundColor='white';
+    }
+  }
+
   const [text, setText] = useState("");
   const [value, setValue] = useState("welcome to qr generator");
 
@@ -32,10 +48,10 @@ const App = () => {
 
   return (
     <>
-      <Navbar />
+      <Navbar mode={mode} toggleMode={toggleMode} />
       <div className="container">
         <div className="mt-5">
-          <InputBox placeHolder={"Enter Text to be Converted"} textFunction={handelText} textArea={text} />
+          <InputBox placeHolder={"Enter Text to be Converted"} textFunction={handelText} textArea={text} mode={mode}/>
         </div>
         <div className="container-fluid">
         <ConvertButton functionPass={handelClick}/>

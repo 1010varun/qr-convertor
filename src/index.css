@@ -11,3 +11,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@media only screen and (max-width: 600px) {
+  #toggle-label {
+    display: none;
+    }
+    .container{
+      flex-wrap: nowrap !important;
+    }
+    .container span{
+      margin-left: 0px !important;
+    }
+}
