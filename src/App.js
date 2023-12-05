@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
-import daynight from './components/image/day-and-night.png'
 
 import Navbar from "./components/navbar";
 import InputBox from "./components/inputBox";

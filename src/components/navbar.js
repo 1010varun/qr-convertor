@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from 'prop-types';
 import daynight from './image/day-and-night.png'
 
-
 const Navbar = (props) => {
   return (
     <nav className={`navbar`} style={{ backgroundColor: "#712cf9" }}>
