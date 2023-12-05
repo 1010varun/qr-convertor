@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from 'prop-types';
 import daynight from './image/day-and-night.png'
 
 const Navbar = (props) => {
