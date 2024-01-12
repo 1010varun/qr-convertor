@@ -41,8 +41,9 @@ const App = () => {
         <ConvertButton functionPass={handelClick}/>
       </div>
       <QrGenerator imageUrl={url}/>
-        <Footer />
+       
       </div>
+      <Footer />
     </>
   );
 };
