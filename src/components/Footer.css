@@ -121,3 +121,13 @@
       background-positon-x: 0px;
     }
   }
+  @media screen and (min-width: 300px) {
+    .footer {       
+        margin-top:34%;
+      }
+  }
+  @media screen and (min-width: 450px) {
+    .footer {       
+        margin-top:34%;
+      }
+  }
