@@ -7,6 +7,7 @@ import InputBox from "./components/inputBox";
 import ConvertButton from "./components/ConvertButton";
 import QrGenerator from "./components/qrGenerator";
 import Footer from "./components/Footer";
+import { saveAs } from 'file-saver';
 
 const App = () => {
 
@@ -44,8 +45,15 @@ const App = () => {
 
   var url = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${value}`
 
+  const FileSaver = require('file-saver');
+  console.log(FileSaver);
+
+  const downimage=()=>{
+    saveAs(url, "qr.jpg");
+  }
 
   return (
+    
     <>
       <Navbar mode={mode} toggleMode={toggleMode} />
       <div className="container">
@@ -54,6 +62,13 @@ const App = () => {
         </div>
         <div className="container-fluid">
         <ConvertButton functionPass={handelClick}/>
+        
+
+        <button onClick={downimage} className="btn my-btn my-buton mt-3"
+        style={{ width: "50%", marginLeft: "25%" }}>Download</button> 
+              
+
+
       </div>
       <QrGenerator imageUrl={url}/>
         <Footer />
