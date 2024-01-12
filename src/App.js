@@ -46,6 +46,7 @@ const App = () => {
   var url = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${value}`
 
   const FileSaver = require('file-saver');
+  console.log(FileSaver);
 
   const downimage=()=>{
     saveAs(url, "qr.jpg");
