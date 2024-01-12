@@ -63,6 +63,8 @@ Contributions are always welcome!
 
 See `contributing.md` for ways to get started.
 
+[Contribution guidelines for this project](/contributing.md)
+
 ## Support++
 
 This project needs your shiny star ⭐.   
