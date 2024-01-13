@@ -121,13 +121,14 @@
       background-positon-x: 0px;
     }
   }
-  @media screen and (min-width: 300px) {
+  @media screen and (max-width: 600px) {
+    .footer {       
+        margin-top:34%;
+        /* background-color: red; */
+      }
+  }
+  /* @media screen and (max-width: 450px) {
     .footer {       
         margin-top:34%;
       }
-  }
-  @media screen and (min-width: 450px) {
-    .footer {       
-        margin-top:34%;
-      }
-  }
+  } */
