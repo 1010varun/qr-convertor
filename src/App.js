@@ -58,7 +58,7 @@ const App = () => {
       <Navbar mode={mode} toggleMode={toggleMode} />
       <div className="container">
         <div className="mt-5">
-          <InputBox placeHolder={"Enter Text to be Converted"} textFunction={handelText} textArea={text} mode={mode}/>
+          <InputBox placeHolder={"Enter Text to be Converted"} textFunction={handelText} textArea={text} mode={mode} limit={500} />
         </div>
         <div className="container-fluid">
         <ConvertButton functionPass={handelClick}/>
