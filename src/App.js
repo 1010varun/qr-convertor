@@ -71,8 +71,9 @@ const App = () => {
 
       </div>
       <QrGenerator imageUrl={url}/>
-        <Footer />
+       
       </div>
+      <Footer />
     </>
   );
 };
