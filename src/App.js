@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 
@@ -10,16 +10,23 @@ import Footer from "./components/Footer";
 import { saveAs } from 'file-saver';
 
 const App = () => {
-
   const [mode, setMode] = useState('light'); //Whether darkmode is enabled or not
+  const darkTheme = localStorage.getItem("theme");
 
+  useEffect(() => {
+    if (darkTheme === "true") {
+      toggleMode();
+    }
+  }, []);
   const toggleMode=()=>{
     if(mode==='light'){
       setMode('dark');
+      localStorage.setItem("theme", true);
       document.body.style.backgroundColor='#212529';
     }
     else if(mode==='dark'){
       setMode('light');
+      localStorage.setItem("theme", false);
       document.body.style.backgroundColor='white';
     }
   }
