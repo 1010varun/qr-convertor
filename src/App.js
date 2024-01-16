@@ -39,6 +39,7 @@ if (input) {
     setColor();
     input.addEventListener("input", setColor);
     const qrcolor=input.value;
+    console.log(qrcolor);
     function setColor() {
       const qrcolor=input.value;
       // body.style.backgroundColor = input.value;
@@ -90,6 +91,7 @@ if (input) {
     saveAs(url, "qr.jpg");
   }
 
+  console.log(darkTheme);
 
 
 
