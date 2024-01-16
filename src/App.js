@@ -26,10 +26,11 @@ const App = () => {
 
   const [text, setText] = useState("");
   const [value, setValue] = useState("welcome to qr generator");
+  const [charCount, setCharCount] = useState(0);
 
   const handelText = (e) => {
     setText(e.target.value);
-
+    setCharCount(e.target.value.length);
   };
 
 
@@ -58,7 +59,7 @@ const App = () => {
       <Navbar mode={mode} toggleMode={toggleMode} />
       <div className="container">
         <div className="mt-5">
-          <InputBox placeHolder={"Enter Text to be Converted"} textFunction={handelText} textArea={text} mode={mode} limit={500} />
+          <InputBox placeHolder={"Enter Text to be Converted"} textFunction={handelText} charCount={charCount} textArea={text} mode={mode} limit={500} />
         </div>
         <div className="container-fluid">
         <ConvertButton functionPass={handelClick}/>
