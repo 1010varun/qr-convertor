@@ -30,11 +30,12 @@ const App = () => {
     }
 
     // Accessing DOM elements here after the component has mounted
-    const body = document.querySelector("body");
+    // const body = document.querySelector("body");
     const input = document.getElementById("colorPicker");
     const colorCode = document.getElementById("colorCode");
     
-
+// Ensure that the input element is defined before attaching the event listener
+if (input) {
     setColor();
     input.addEventListener("input", setColor);
     const qrcolor=input.value;
@@ -43,7 +44,7 @@ const App = () => {
       // body.style.backgroundColor = input.value;
       colorCode.innerHTML = input.value;
       setSelectedColor(qrcolor);
-    }
+    }}
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const toggleMode = () => {
@@ -101,7 +102,7 @@ const App = () => {
           <InputBox placeHolder={"Enter Text to be Converted"} textFunction={handelText} charCount={charCount} textArea={text} mode={mode} limit={500} />
 
           <div className="colors" >
-            <label for="colorPicker">QR Color:</label>
+            <label htmlFor="colorPicker">QR Color:</label>
             <input type="color"  defaultValue={"00000"} id="colorPicker"/>
 
               <b>Current color code: <code id="colorCode"></code></b>
