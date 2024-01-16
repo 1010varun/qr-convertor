@@ -1,25 +1,35 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
 @media only screen and (max-width: 600px) {
   #toggle-label {
     display: none;
-    }
-    .container{
-      flex-wrap: nowrap !important;
-    }
-    .container span{
-      margin-left: 0px !important;
-    }
+  }
+  .container {
+    flex-wrap: nowrap !important;
+  }
+  .container span {
+    margin-left: 0px !important;
+  }
+}
+/* In your CSS file or within your component */
+.QRCode {
+  filter: invert(75%) sepia(59%) saturate(361%) hue-rotate(328deg) brightness(93%) contrast(85%);
+}
+.drag-handle {
+  cursor: grab;
+  padding: 4px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  user-select: none; 
 }
