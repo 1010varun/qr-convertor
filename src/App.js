@@ -26,7 +26,6 @@ const App = () => {
   const [value, setValue] = useState("welcome to qr generator");
   const [qrColor, setQrColor] = useState("#000000");
   const [pickerPosition, setPickerPosition] = useState({ x: 0, y: 0 });
-  const [isDragging, setIsDragging] = useState(false);
   const handlePickerDrag = (e, ui) => {
     const { x, y } = ui;
     setPickerPosition({ x, y });
