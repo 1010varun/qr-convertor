@@ -25,3 +25,11 @@ code {
 .QRCode {
   filter: invert(75%) sepia(59%) saturate(361%) hue-rotate(328deg) brightness(93%) contrast(85%);
 }
+.drag-handle {
+  cursor: grab;
+  padding: 4px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  user-select: none; 
+}
