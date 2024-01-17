@@ -104,7 +104,7 @@ if (input) {
           <InputBox placeHolder={"Enter Text to be Converted"} textFunction={handelText} charCount={charCount} textArea={text} mode={mode} limit={500} />
 
           <div className="colors" >
-            <label htmlFor="colorPicker">QR Color:</label>
+            <label htmlFor="colorPicker" style={{color:mode==='light'?'black':'white'}}>QR Color:</label>
             <input type="color"  defaultValue={"00000"} id="colorPicker"/>
 
               <b>Current color code: <code id="colorCode"></code></b>
