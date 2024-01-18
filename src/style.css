@@ -9,6 +9,19 @@ input[type="color"] {
     margin: 20px;
 }
 
+select{
+    /* background-color: #fff; */
+    /* padding: 10px; */
+    width: 200px;
+    height: 30px;
+    cursor: pointer;
+    border: 2px solid #000;
+    border-radius: 3px;
+    margin: 20px;
+    text-align: center;
+    font-weight: bolder;
+}
+
 b {
 	background-color: #fff;
 	padding: 16px;
