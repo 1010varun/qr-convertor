@@ -29,7 +29,7 @@ const App = () => {
     setSelectedDownload(qrdownload);
     console.log("ho", selectedDownload, qrdownload);
   };
-
+console.log(selectedColor)
   useEffect(() => {
     const darkTheme = localStorage.getItem("theme");
     if (darkTheme === "true") {
