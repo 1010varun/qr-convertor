@@ -13,7 +13,7 @@ import { SketchPicker } from 'react-color';
 
 const App = () => {
   const [mode, setMode] = useState('light'); //Whether darkmode is enabled or not
-  const [selectedColor, setSelectedColor] = useState("#000000"); // Default color is black
+  // const [selectedColor, setSelectedColor] = useState("#000000"); // Default color is black
   const [selectedDownload, setSelectedDownload] = useState("#000000"); // Default color is black
   const darkTheme = localStorage.getItem("theme");
 
@@ -27,9 +27,9 @@ const App = () => {
   const handleDownloadChange = (e) => {
     const qrdownload = e.target.value;
     setSelectedDownload(qrdownload);
-    console.log("ho", selectedDownload, qrdownload);
+    // console.log("ho", selectedDownload, qrdownload);
   };
-console.log(selectedColor)
+// console.log(selectedColor)
   useEffect(() => {
     const darkTheme = localStorage.getItem("theme");
     if (darkTheme === "true") {
@@ -38,22 +38,21 @@ console.log(selectedColor)
 
     // Accessing DOM elements here after the component has mounted
     // const body = document.querySelector("body");
-    const input = document.getElementById("colorPicker");
-    const colorCode = document.getElementById("colorCode");
+    // const input = document.getElementById("colorPicker");
+    // const colorCode = document.getElementById("colorCode");
 
     // Ensure that the input element is defined before attaching the event listener
-    if (input) {
-      setColor();
-      input.addEventListener("input", setColor);
-      const qrcolor = input.value;
-      console.log(qrcolor);
-      function setColor() {
-        const qrcolor = input.value;
-        // body.style.backgroundColor = input.value;
-        colorCode.innerHTML = input.value;
-        setSelectedColor(qrcolor);
-      }
-    }
+    // if (input) {
+    //   setColor();
+    //   input.addEventListener("input", setColor);
+      
+    //   function setColor() {
+    //     // const qrcolor = input.value;
+    //     // body.style.backgroundColor = input.value;
+    //     // colorCode.innerHTML = input.value;
+    //     // setSelectedColor(qrcolor);
+    //   }
+    // }
 
 
     // Accessing DOM elements here after the component has mounted
@@ -66,14 +65,13 @@ console.log(selectedColor)
       setDownload();
       dinput.addEventListener("dinput", setDownload);
       const qrdownload = dinput.value;
-      console.log(qrdownload);
+      // console.log(qrdownload);
       function setDownload() {
         const qrdownload = dinput.value;
         // body.style.backgroundColor = input.value;
         dCode.innerHTML = dinput.value;
         setSelectedDownload(qrdownload);
-        var c = 1;
-        console.log("ho", c++, selectedDownload, qrdownload)
+        
       }
     }
 
@@ -107,7 +105,7 @@ console.log(selectedColor)
 
 
   const handelClick = () => {
-    console.log(text);
+    // console.log(text);
     if (text.length === 0) {
       alert("please enter the text");
       setValue("Please enter text");
@@ -117,16 +115,16 @@ console.log(selectedColor)
   }
   // const qr_color=setColor();
   var url = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${value}&color=${currentColor.substring(1)}`
-  console.log("URL", url);
+  // console.log("URL", url);
 
-  const FileSaver = require('file-saver');
-  console.log(FileSaver);
+  // const FileSaver = require('file-saver');
+  // console.log(FileSaver);
 
   const downimage = () => {
     saveAs(url, "qr." + selectedDownload);
   }
 
-  console.log(darkTheme);
+  // console.log(darkTheme);
 
 
 
@@ -141,10 +139,10 @@ console.log(selectedColor)
 <div className="">
           <div className="row">
             <div className="flex">
-            <div className="column column1" style={{ backgroundColor: "#aaa;" }}>
+            <div className="column column1">
             <QrGenerator imageUrl={url} />
             </div>
-            <div className="column column2" style={{ backgroundColor: "#bbb;" }}>
+            <div className="column column2">
               <SketchPicker color={currentColor} onChangeComplete={handleOnChange} />
 
 <div>
@@ -153,7 +151,7 @@ console.log(selectedColor)
                 <label htmlFor="downloadPicker" style={{ color: mode === 'light' ? 'black' : 'white' }}>Download As:</label>
 
                 <select name="cars" id="downloadPicker" onChange={handleDownloadChange}>
-                  <option value="jpg" selected>JPG</option>
+                  <option value="jpg"  defaultValue={"jpg"}>JPG</option>
                   <option value="png">PNG</option>
                 </select>
                 <b style={{display:'none'}}>Current Download State: <code id="dCode">{selectedDownload}</code></b>
