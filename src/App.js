@@ -15,7 +15,7 @@ const App = () => {
   const [mode, setMode] = useState('light'); //Whether darkmode is enabled or not
   // const [selectedColor, setSelectedColor] = useState("#000000"); // Default color is black
   const [selectedDownload, setSelectedDownload] = useState("#000000"); // Default color is black
-  const darkTheme = localStorage.getItem("theme");
+  // const darkTheme = localStorage.getItem("theme");
 
 
   const [currentColor, setCurrentColor] = useState("#000")
@@ -64,7 +64,7 @@ const App = () => {
     if (dinput) {
       setDownload();
       dinput.addEventListener("dinput", setDownload);
-      const qrdownload = dinput.value;
+      // const qrdownload = dinput.value;
       // console.log(qrdownload);
       function setDownload() {
         const qrdownload = dinput.value;
