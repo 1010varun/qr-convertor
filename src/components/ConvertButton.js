@@ -3,16 +3,16 @@ import "./Button.css";
 
 const ConvertButton = ({functionPass}) => {
   return (
-    <div className="">
+    
       <button
         type="button"
         className="btn buton mt-3"
-        style={{ width: "50%", color: "white", marginLeft: "25%" }}
+        style={{ width: "93%", color: "white" }}
         onClick={functionPass}
       >
         Generate QR
       </button>
-    </div>
+    
   );
 };
 

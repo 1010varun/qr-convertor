@@ -40,3 +40,102 @@ code {
     align-items: center;
     justify-content: center;
 }
+
+* {
+    box-sizing: border-box;
+  }
+  
+  /* Create two equal columns that floats next to each other */
+  .column {
+    float: left;
+    /* width: 50%; */
+    padding: 10px;
+    height: 330px; /* Should be removed. Only for demonstration */
+    border-radius: 2%;
+  }
+  .row{
+    border-radius: 8%;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .colors{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .column1{
+    background-color: #F3F7FA;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 25% ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  .column2{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40% ;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    gap: 1rem;
+  }
+
+  .container-fluid{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media screen and (max-width: 600px) {
+    .flex {
+      flex-direction: column;
+    }
+    .column1{
+        width: 90%;
+        height: auto;
+        padding-bottom: 2rem;
+    }
+    .img-fluid{
+        width: 50%;
+    }
+    .column2{
+        flex-direction: column;
+        width: 90%;
+        height: auto;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+  }
+
+
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+    /* Your tablet-specific styles go here */
+    
+    .conatiner{
+      min-height: 100vh;
+    }
+    .footer{
+      position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    }
+    .column2{
+      width: 65%;
+    }
+  }
