@@ -7,7 +7,7 @@ const ConvertButton = ({functionPass}) => {
       <button
         type="button"
         className="btn buton mt-3"
-        style={{ width: "93%", color: "white" }}
+        style={{ width: "100%", color: "white" }}
         onClick={functionPass}
       >
         Generate QR
