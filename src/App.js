@@ -108,7 +108,7 @@ const App = () => {
     }
   }
   // const qr_color=setColor();
-  var url = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${value}&color=${currentColor.substring(1)}`
+  // var url = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${value}&color=${currentColor.substring(1)}`
   var url = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${value}&color=${currentColor.substring(1)}&bgcolor=${bgselectedColor.substring(1)}`
   // console.log("URL", url);
 
