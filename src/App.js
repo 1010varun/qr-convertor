@@ -13,6 +13,7 @@ import { SketchPicker } from 'react-color';
 
 const App = () => {
   const [mode, setMode] = useState('light'); //Whether darkmode is enabled or not
+  const [bgselectedColor, setbgSelectedColor] = useState("#ffffff"); // Default color is white
   // const [selectedColor, setSelectedColor] = useState("#000000"); // Default color is black
   const [selectedDownload, setSelectedDownload] = useState("#000000"); // Default color is black
   // const darkTheme = localStorage.getItem("theme");
@@ -36,23 +37,19 @@ const App = () => {
       toggleMode();
     }
 
-    // Accessing DOM elements here after the component has mounted
-    // const body = document.querySelector("body");
-    // const input = document.getElementById("colorPicker");
+  
+
+    const input = document.getElementById("bgcolorPicker");
     // const colorCode = document.getElementById("colorCode");
 
-    // Ensure that the input element is defined before attaching the event listener
-    // if (input) {
-    //   setColor();
-    //   input.addEventListener("input", setColor);
-      
-    //   function setColor() {
-    //     // const qrcolor = input.value;
-    //     // body.style.backgroundColor = input.value;
-    //     // colorCode.innerHTML = input.value;
-    //     // setSelectedColor(qrcolor);
-    //   }
-    // }
+    if (input) {
+      setColor();
+      input.addEventListener("input", setColor);
+      function setColor() {
+        const qrcolor=input.value;
+        // colorCode.innerHTML = input.value;
+        setbgSelectedColor(qrcolor);
+      }}
 
 
     // Accessing DOM elements here after the component has mounted
@@ -60,15 +57,12 @@ const App = () => {
     const dinput = document.getElementById("downloadPicker");
     const dCode = document.getElementById("dCode");
 
-    // Ensure that the input element is defined before attaching the event listener
+
     if (dinput) {
       setDownload();
       dinput.addEventListener("dinput", setDownload);
-      // const qrdownload = dinput.value;
-      // console.log(qrdownload);
       function setDownload() {
         const qrdownload = dinput.value;
-        // body.style.backgroundColor = input.value;
         dCode.innerHTML = dinput.value;
         setSelectedDownload(qrdownload);
         
@@ -114,7 +108,8 @@ const App = () => {
     }
   }
   // const qr_color=setColor();
-  var url = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${value}&color=${currentColor.substring(1)}`
+  // var url = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${value}&color=${currentColor.substring(1)}`
+  var url = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${value}&color=${currentColor.substring(1)}&bgcolor=${bgselectedColor.substring(1)}`
   // console.log("URL", url);
 
   // const FileSaver = require('file-saver');
@@ -147,6 +142,20 @@ const App = () => {
 
 <div>
               <div className="colors" >
+
+              
+
+
+              <div className="bgcolors" >
+            <label htmlFor="bgcolorPicker">Background Color:</label>
+            <input type="color"  defaultValue={"#ffffff"} id="bgcolorPicker"/>
+
+              {/* <b>Current color code: <code id="colorCode"></code></b> */}
+              </div>
+
+
+
+              
 
                 <label htmlFor="downloadPicker" style={{ color: mode === 'light' ? 'black' : 'white' }}>Download As:</label>
 
