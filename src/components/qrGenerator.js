@@ -6,6 +6,10 @@ const QrGenerator = ({targetURL, logoURL, canvasRef}) => {
       const canvas = canvasRef.current;
       const ctx = canvas.getContext("2d");
   
+      const QR_SIZE = 300;
+      const LOGO_SIZE = 64;
+      console.log(targetURL);
+
       let fetchURL = targetURL;
       if (logoURL !== "") {
         fetchURL += "&ecc=H";
@@ -16,16 +20,16 @@ const QrGenerator = ({targetURL, logoURL, canvasRef}) => {
       const qr = new Image();
   
       qr.onload = () => {
-        ctx.drawImage(qr, 0, 0, 300, 300);
+        ctx.drawImage(qr, 0, 0, QR_SIZE, QR_SIZE);
   
         if (logoURL !== "") {
           ctx.fillStyle = "white";
-          ctx.fillRect(102, 102, 96, 96);
+          ctx.fillRect((QR_SIZE - LOGO_SIZE) / 2, (QR_SIZE - LOGO_SIZE) / 2, LOGO_SIZE, LOGO_SIZE);
   
           const logo = new Image();
   
           logo.onload = () => {
-            ctx.drawImage(logo, 102, 102, 96, 96);
+            ctx.drawImage(logo, (QR_SIZE - LOGO_SIZE) / 2, (QR_SIZE - LOGO_SIZE) / 2, LOGO_SIZE, LOGO_SIZE);
           }
   
           logo.src = logoURL;
