@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 
@@ -7,7 +7,6 @@ import InputBox from "./components/inputBox";
 import ConvertButton from "./components/ConvertButton";
 import QrGenerator from "./components/qrGenerator";
 import Footer from "./components/Footer";
-import { saveAs } from 'file-saver';
 import './style.css'
 import { SketchPicker } from 'react-color';
 
@@ -17,7 +16,11 @@ const App = () => {
   // const [selectedColor, setSelectedColor] = useState("#000000"); // Default color is black
   const [selectedDownload, setSelectedDownload] = useState("#000000"); // Default color is black
   // const darkTheme = localStorage.getItem("theme");
+  const [logoURL, setLogoURL] = useState("");
 
+  const canvasRef = useRef(null);
+  const logoInput = useRef(null);
+  const downloadRef = useRef(null);
 
   const [currentColor, setCurrentColor] = useState("#000")
   const handleOnChange = (color) => {
@@ -30,6 +33,22 @@ const App = () => {
     setSelectedDownload(qrdownload);
     // console.log("ho", selectedDownload, qrdownload);
   };
+
+  const handleLogoInput = e => {
+    const file = e.target.files[0];
+
+    if (file) {
+      const fr = new FileReader();
+      fr.onload = () => {
+        setLogoURL(fr.result);
+      };
+      fr.readAsDataURL(file);
+    } else {
+      setLogoURL("");
+    }
+  };
+
+
 // console.log(selectedColor)
   useEffect(() => {
     const darkTheme = localStorage.getItem("theme");
@@ -116,7 +135,11 @@ const App = () => {
   // console.log(FileSaver);
 
   const downimage = () => {
-    saveAs(url, "qr." + selectedDownload);
+    const canvas = canvasRef.current;
+    const a = downloadRef.current;
+
+    a.href = canvas.toDataURL(`image/${selectedDownload}`);
+    a.click();
   }
 
   // console.log(darkTheme);
@@ -135,7 +158,7 @@ const App = () => {
           <div className="row">
             <div className="flex">
             <div className="column column1">
-            <QrGenerator imageUrl={url} />
+            <QrGenerator targetURL={url} logoURL={logoURL} canvasRef={canvasRef} />
             </div>
             <div className="column column2">
               <SketchPicker color={currentColor} onChangeComplete={handleOnChange} />
@@ -160,18 +183,23 @@ const App = () => {
                 <label htmlFor="downloadPicker" style={{ color: mode === 'light' ? 'black' : 'white' }}>Download As:</label>
 
                 <select name="cars" id="downloadPicker" onChange={handleDownloadChange}>
-                  <option value="jpg"  defaultValue={"jpg"}>JPG</option>
-                  <option value="png">PNG</option>
+                  <option value="jpeg">JPEG</option>
+                  <option value="png" selected>PNG</option>
                 </select>
                 <b style={{display:'none'}}>Current Download State: <code id="dCode">{selectedDownload}</code></b>
 
               </div>
+
+              <div className="container-fluid" style={{ margin: ".5rem 0" }}>
+                <label htmlFor="logoPicker">Add a Logo: </label>
+                <input id="logoPicker" className="form-control-sm" type="file" accept="image/png, image/jpg, image/jpeg" ref={logoInput} onChange={handleLogoInput} />
+              </div>
+
               <div className="container-fluid">
                 <ConvertButton functionPass={handelClick} />
 
 
-                <button onClick={downimage} className="btn my-btn my-buton mt-3"
-                  style={{ width: "93%" }}>Download</button>
+                <button onClick={downimage} className="btn my-btn my-buton mt-3" style={{ width: "100%" }}>Download</button>
 
 
 </div>
@@ -201,6 +229,7 @@ const App = () => {
 
       </div>
       <Footer />
+      <a href="#null" ref={downloadRef} style={{display: "none"}} download={true}>Download Image</a>
     </>
   );
 };
